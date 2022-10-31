@@ -1,0 +1,42 @@
+<header>
+  <h1>Github API</h1>
+</header>
+
+<section>
+  <h2>Pesquisa</h2>
+  <form action="">
+    <div class="input-group">
+      <label for="nome-usuario"></label>
+      <input
+        type="text"
+        name="nome-usuario"
+        required
+        [(ngModel)]="nomeDeUsuario"
+      />
+    </div>
+    <div class="input-group">
+      <button type="button" (click)="getRepositorios()">Buscar</button>
+    </div>
+  </form>
+</section>
+<section>
+  <h2>Resultado da busca</h2>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Nome Completo</th>
+      <th>URL</th>
+      <th>Descrição</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repositorio of repositorios">
+        <td>{{ repositorio.id }}</td>
+        <td>{{ repositorio.name }}</td>
+        <td>{{ repositorio.full_name }}</td>
+        <td>{{ repositorio.html_url }}</td>
+        <td>{{ repositorio.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
